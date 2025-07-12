@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis: Seni Memasak Nasi Pulen Sempurna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            flex: 1;
+            min-width: 150px;
+        }
+        .flowchart-step-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .flowchart-line {
+            display: none;
+        }
+        @media (min-width: 1024px) {
+            .flowchart-step:not(:last-child)::after {
+                content: '→';
+                position: absolute;
+                right: -30px;
+                top: 40px;
+                transform: translateY(-50%);
+                font-size: 2.5rem;
+                color: #FFD166;
+            }
+        }
+         @media (max-width: 1023px) {
+            .flowchart-line {
+                display: block;
+                width: 2px;
+                height: 40px;
+                background-color: #FFD166;
+                margin: 0.5rem auto;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-[#073B4C] text-white p-8 text-center rounded-b-3xl shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight mb-2">Seni Memasak Nasi Pulen Sempurna</h1>
+        <p class="text-lg md:text-xl max-w-3xl mx-auto text-[#a7dbe9]">Mengungkap rahasia di balik nasi yang pulen, wangi, dan lezat setiap saat.</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="hook" class="text-center my-12">
+            <div class="bg-white rounded-lg shadow-md p-8">
+                <p class="text-2xl md:text-3xl font-semibold text-[#118AB2] mb-2">Tahukah Anda?</p>
+                <p class="text-6xl md:text-8xl font-black text-[#FF6B6B] my-4">95%</p>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">Masyarakat Indonesia mengonsumsi nasi sebagai makanan pokok setiap hari. Kualitas nasi sangat menentukan kenikmatan hidangan.</p>
+            </div>
+        </section>
+
+        <section id="rice-comparison" class="my-16">
+            <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">Langkah #1: Fondasi Rasa - Memilih Beras Terbaik</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Tidak semua beras diciptakan sama. Pilihan jenis beras adalah langkah awal yang krusial untuk hasil akhir yang pulen. Berikut perbandingan beberapa jenis beras populer di Indonesia berdasarkan karakteristik kuncinya.</p>
+                <div class="chart-container">
+                    <canvas id="riceComparisonChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="flowchart" class="my-16">
+             <h2 class="text-3xl font-bold text-center mb-2 text-[#073B4C]">Proses 5 Langkah Menuju Nasi Sempurna</h2>
+             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Ikuti alur sederhana ini untuk mengubah cara Anda memasak nasi selamanya. Setiap langkah memiliki peran penting untuk menciptakan tekstur dan rasa yang ideal.</p>
+            <div class="bg-white rounded-lg shadow-md p-6 md:p-10">
+                <div class="flex flex-col lg:flex-row justify-between items-start gap-8">
+                    
+                    <div class="flowchart-step">
+                        <div class="flowchart-step-icon bg-[#FF6B6B]">🍚</div>
+                        <h3 class="font-bold text-lg text-[#073B4C]">1. Cuci & Pilih</h3>
+                        <p class="text-gray-600 text-sm">Cuci beras 2-3 kali untuk menghilangkan kotoran tanpa membuang nutrisi.</p>
+                    </div>
+
+                    <div class="flowchart-line lg:hidden"></div>
+                    
+                    <div class="flowchart-step">
+                        <div class="flowchart-step-icon bg-[#FFD166]">💧</div>
+                        <h3 class="font-bold text-lg text-[#073B4C]">2. Takaran Air</h3>
+                        <p class="text-gray-600 text-sm">Gunakan rasio ideal 1:1.5 (beras:air) atau sesuaikan dengan jenis beras.</p>
+                    </div>
+
+                     <div class="flowchart-line lg:hidden"></div>
+
+                    <div class="flowchart-step">
+                        <div class="flowchart-step-icon bg-[#06D6A0]">⏳</div>
+                        <h3 class="font-bold text-lg text-[#073B4C]">3. Rendam</h3>
+                        <p class="text-gray-600 text-sm">Rendam selama 15-30 menit agar air meresap sempurna dan nasi mekar.</p>
+                    </div>
+
+                     <div class="flowchart-line lg:hidden"></div>
+
+                    <div class="flowchart-step">
+                        <div class="flowchart-step-icon bg-[#118AB2]">🌿</div>
+                        <h3 class="font-bold text-lg text-[#073B4C]">4. Bumbu Aroma</h3>
+                        <p class="text-gray-600 text-sm">Tambahkan daun pandan atau sedikit garam untuk wangi & rasa.</p>
+                    </div>
+
+                     <div class="flowchart-line lg:hidden"></div>
+
+                    <div class="flowchart-step">
+                        <div class="flowchart-step-icon bg-[#073B4C]">♨️</div>
+                        <h3 class="font-bold text-lg text-[#073B4C]">5. Istirahatkan</h3>
+                        <p class="text-gray-600 text-sm">Diamkan 5-10 menit setelah matang agar tanak dan uap merata.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-12 text-[#073B4C]">Sains di Balik Nasi Pulen</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-2 text-[#06D6A0]">Keajaiban Merendam Beras</h3>
+                    <p class="text-center text-gray-600 mb-8">Merendam beras sebelum memasak bukan sekadar mitos. Proses ini secara signifikan meningkatkan penyerapan air, yang berkontribusi langsung pada tingkat kepulenan nasi setelah matang.</p>
+                    <div class="chart-container">
+                        <canvas id="soakingImpactChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-center mb-2 text-[#FFD166]">Pentingnya Rasio Air yang Tepat</h3>
+                    <p class="text-center text-gray-600 mb-8">Takaran air adalah faktor penentu antara nasi yang sempurna, terlalu keras, atau malah menjadi bubur. Sedikit perbedaan dapat mengubah hasil akhir secara drastis.</p>
+                    <div class="chart-container">
+                        <canvas id="waterRatioChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#073B4C] text-white text-center p-6 mt-16 rounded-t-3xl">
+        <p>&copy; 2025 Infografis Interaktif. Dibuat dengan data dari Dapur Galuh Online.</p>
+    </footer>
+
+    <script>
+        const colorPalette = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            dark: '#073B4C',
+            lightGray: '#e2e8f0',
+            darkGray: '#4a5568'
+        };
+
+        function wrapLabel(str, maxLen = 16) {
+            if (str.length <= maxLen) {
+                return str;
+            }
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLen) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: colorPalette.darkGray,
+                        font: {
+                            family: 'Inter',
+                            size: 14,
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleFont: {
+                         family: 'Inter',
+                         size: 16,
+                         weight: 'bold'
+                    },
+                    bodyFont: {
+                         family: 'Inter',
+                         size: 14
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: { 
+                        color: colorPalette.darkGray,
+                        font: { family: 'Inter', size: 12 }
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: { 
+                        color: colorPalette.darkGray,
+                        font: { family: 'Inter', size: 12 }
+                    },
+                    grid: { color: colorPalette.lightGray }
+                }
+            }
+        };
+
+        const riceComparisonCtx = document.getElementById('riceComparisonChart').getContext('2d');
+        new Chart(riceComparisonCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Pandan Wangi', 'Rojolele', 'Beras IR64 (Pera)'],
+                datasets: [{
+                    label: 'Tingkat Kepulenan',
+                    data: [9, 8, 4],
+                    backgroundColor: colorPalette.red,
+                    borderColor: colorPalette.red,
+                    borderWidth: 1
+                }, {
+                    label: 'Tingkat Aroma',
+                    data: [9, 7, 3],
+                    backgroundColor: colorPalette.yellow,
+                    borderColor: colorPalette.yellow,
+                    borderWidth: 1
+                }, {
+                    label: 'Tingkat Kelengketan',
+                    data: [7, 8, 2],
+                    backgroundColor: colorPalette.blue,
+                    borderColor: colorPalette.blue,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                plugins: { ...defaultChartOptions.plugins, 
+                    title: {
+                        display: true,
+                        text: 'Skor Karakteristik Beras (1-10)',
+                        color: colorPalette.dark,
+                        font: { size: 16, weight: 'bold', family: 'Inter' },
+                        padding: { bottom: 20 }
+                    }
+                },
+                scales: { ...defaultChartOptions.scales, 
+                    y: { ...defaultChartOptions.scales.y, max: 10 }
+                }
+            }
+        });
+
+        const soakingImpactCtx = document.getElementById('soakingImpactChart').getContext('2d');
+        new Chart(soakingImpactCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Kontribusi dari Merendam', 'Faktor Lainnya'],
+                datasets: [{
+                    label: 'Kontribusi pada Kepulenan',
+                    data: [35, 65],
+                    backgroundColor: [colorPalette.green, colorPalette.lightGray],
+                    borderColor: ['#FFFFFF'],
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                 ...defaultChartOptions,
+                 cutout: '70%',
+                 scales: { x: { display: false }, y: { display: false } }
+            }
+        });
+
+        const waterRatioCtx = document.getElementById('waterRatioChart').getContext('2d');
+        new Chart(waterRatioCtx, {
+            type: 'pie',
+            data: {
+                labels: [wrapLabel('Hasil Sempurna (Rasio Tepat)'), wrapLabel('Terlalu Keras (Kurang Air)'), wrapLabel('Terlalu Lembek (Kelebihan Air)')],
+                datasets: [{
+                    label: 'Hasil Memasak',
+                    data: [70, 15, 15],
+                    backgroundColor: [
+                        colorPalette.yellow,
+                        colorPalette.red,
+                        colorPalette.blue
+                    ],
+                    borderColor: ['#FFFFFF'],
+                    borderWidth: 4,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                 ...defaultChartOptions,
+                 scales: { x: { display: false }, y: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
