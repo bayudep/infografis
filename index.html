@@ -97,7 +97,7 @@
                     
                     <div class="flowchart-step">
                         <!-- Ikon dibuat responsif: lebih kecil di mobile, lebih besar di desktop -->
-                        <div class="flowchart-step-icon bg-[#FF6B6B] w-16 h-16 md:w-20 md:h-20 text-3xl md:text-4xl">🍚</div>
+                        <div class="flowchart-step-icon bg-[#FF6B6B] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl">🍚</div>
                         <h3 class="font-bold text-lg text-[#073B4C] mt-4">1. Cuci & Pilih</h3>
                         <p class="text-gray-600 text-sm max-w-xs">Cuci beras 2-3 kali untuk menghilangkan kotoran tanpa membuang nutrisi.</p>
                     </div>
@@ -105,25 +105,25 @@
                     <!-- Garis vertikal tidak lagi diperlukan, digantikan oleh gap-y -->
                     
                     <div class="flowchart-step">
-                        <div class="flowchart-step-icon bg-[#FFD166] w-16 h-16 md:w-20 md:h-20 text-3xl md:text-4xl">💧</div>
+                        <div class="flowchart-step-icon bg-[#FFD166] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl">💧</div>
                         <h3 class="font-bold text-lg text-[#073B4C] mt-4">2. Takaran Air</h3>
                         <p class="text-gray-600 text-sm max-w-xs">Gunakan rasio ideal 1:1.5 (beras:air) atau sesuaikan dengan jenis beras.</p>
                     </div>
 
                     <div class="flowchart-step">
-                        <div class="flowchart-step-icon bg-[#06D6A0] w-16 h-16 md:w-20 md:h-20 text-3xl md:text-4xl">⏳</div>
+                        <div class="flowchart-step-icon bg-[#06D6A0] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl">⏳</div>
                         <h3 class="font-bold text-lg text-[#073B4C] mt-4">3. Rendam</h3>
                         <p class="text-gray-600 text-sm max-w-xs">Rendam 15-30 menit agar air meresap sempurna dan nasi mekar.</p>
                     </div>
 
                     <div class="flowchart-step">
-                        <div class="flowchart-step-icon bg-[#118AB2] w-16 h-16 md:w-20 md:h-20 text-3xl md:text-4xl">🌿</div>
+                        <div class="flowchart-step-icon bg-[#118AB2] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl">🌿</div>
                         <h3 class="font-bold text-lg text-[#073B4C] mt-4">4. Bumbu Aroma</h3>
                         <p class="text-gray-600 text-sm max-w-xs">Tambahkan daun pandan atau sedikit garam untuk wangi & rasa.</p>
                     </div>
 
                     <div class="flowchart-step">
-                        <div class="flowchart-step-icon bg-[#073B4C] w-16 h-16 md:w-20 md:h-20 text-3xl md:text-4xl">♨️</div>
+                        <div class="flowchart-step-icon bg-[#073B4C] w-16 h-16 md:w-20 md:h-20 flex items-center justify-center text-3xl md:text-4xl">♨️</div>
                         <h3 class="font-bold text-lg text-[#073B4C] mt-4">5. Istirahatkan</h3>
                         <p class="text-gray-600 text-sm max-w-xs">Diamkan 5-10 menit setelah matang agar tanak dan uap merata.</p>
                     </div>
@@ -298,6 +298,14 @@
             },
             options: {
                 ...defaultChartOptions,
+                plugins: {
+                    ...defaultChartOptions.plugins,
+                    legend: {
+                         ...defaultChartOptions.plugins.legend,
+                         // Nonaktifkan klik pada legenda untuk pie/doughnut agar lebih sederhana
+                         onClick: null 
+                    }
+                },
                 cutout: '70%',
                 scales: { x: { display: false }, y: { display: false } }
             }
@@ -324,6 +332,22 @@
             },
             options: {
                 ...defaultChartOptions,
+                plugins: {
+                    // Gunakan kembali konfigurasi tooltip dari default
+                    tooltip: defaultChartOptions.plugins.tooltip,
+                    // Ganti konfigurasi legenda khusus untuk diagram ini
+                    legend: {
+                        display: false // Sembunyikan legenda karena label sudah cukup jelas
+                    },
+                    // Tambahkan judul khusus untuk diagram ini
+                    title: {
+                        display: true,
+                        text: 'Hasil Berdasarkan Rasio Air',
+                        color: colorPalette.dark,
+                        font: { size: 14, weight: 'bold', family: 'Inter' },
+                        padding: { bottom: 5 }
+                    }
+                },
                 scales: { x: { display: false }, y: { display: false } }
             }
         });
